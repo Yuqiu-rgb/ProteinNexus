@@ -1,0 +1,1 @@
+Please put the weights of esm-c and saprots in this directory
