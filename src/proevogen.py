@@ -536,29 +536,3 @@ def main():
     print(
         f"Enhanced dataset size: {len(enhanced_df)} ({enhanced_df['label'].sum()} Pos, {len(enhanced_df) - enhanced_df['label'].sum()} Neg)")
     print(f"Data saved to {config.OUTPUT_CSV}")
-
-
-if __name__ == "__main__":
-    # How to use:
-    # 1. Ensure you have netsurfp-3.0 installed locally and update `NETSURFP_PATH`.
-    # 2. Create your input data `protein_data.csv` with 'seq' and 'label' columns.
-    # 3. Create a PSSM file `phos_pssm.txt`. It should be a space-separated file where
-    #    rows are amino acids and columns are positions (e.g., '0', '1', ... '32').
-    #    Example row: A -0.5 0.1 ...
-    # 4. Run `python pro_evo_gen.py`.
-
-    # Create a dummy PSSM file if it doesn't exist for demonstration
-    if not os.path.exists(Config.PSSM_FILE):
-        print("Creating a dummy PSSM file for demonstration...")
-        amino_acids = "ARNDCQEGHILKMFPSTWYV"
-        header = " ".join(map(str, range(Config.SEQ_LENGTH)))
-        with open(Config.PSSM_FILE, "w") as f:
-            f.write(f"  {header}\n")
-            for aa in amino_acids:
-                scores = np.random.randn(Config.SEQ_LENGTH) * 0.1
-                # Make center PTM sites more favorable in the dummy file
-                if aa in Config.PTM_AA:
-                    scores[Config.CENTER_POS] = 2.0
-                f.write(f"{aa} {' '.join(f'{s:.4f}' for s in scores)}\n")
-
-    main()
