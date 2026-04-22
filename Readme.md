@@ -7,7 +7,7 @@
 ​	src: Main code storage
 
 ​	model/embedding: Weight storage
-
+  Zenodo DOI:10.5281/zenodo.19698954
 ------
 
 **2.Requirements**
