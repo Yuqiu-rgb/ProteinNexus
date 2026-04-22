@@ -6,8 +6,6 @@
 
 ​	src: Main code storage
 
-​	model/embedding: Weight storage
-  Zenodo DOI:10.5281/zenodo.19698954
 ------
 
 **2.Requirements**
@@ -57,6 +55,8 @@ Just run src/train.py to start training
 ```python
 python train.py
 ```
+
+Zenodo DOI:10.5281/zenodo.19698954
 
 
 
